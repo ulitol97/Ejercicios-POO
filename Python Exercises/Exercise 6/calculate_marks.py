@@ -1,20 +1,19 @@
-def calculate_marks (solutions, students_answers):
+def calculate_marks(solutions, students_answers):
     id_questions = list(solutions.keys())
-    print(id_questions)
-
-    ret = {}
+    ret = {}  # Dictionary to be returned
     #   Iterate from student to student
     for student in students_answers:
         mark = 0
         print("Student: {0}".format(student))
         #   Iterate through student answers
-        for answer_pair in students_answers[student]:
+        for answer_key in students_answers[student]:
             print("Student {0} answers: {1}".format(student, students_answers[student]))
-            print("Student answer to question {0}: {1}".format(answer_pair, students_answers[student][answer_pair]))
-            if not (answer_pair in id_questions):
-                print("Question ID {0} is not in the answer sheet, valid IDs are: {1}".format(answer_pair, id_questions))
+            print("Student answer to question {0}: {1}".format(answer_key, students_answers[student][answer_key]))
+            if not (answer_key in id_questions):
+                print(
+                    "Question ID {0} is not in the answer sheet, valid IDs are: {1}".format(answer_key, id_questions))
                 pass
-            elif students_answers[student][answer_pair] == solutions[answer_pair]:
+            elif students_answers[student][answer_key] == solutions[answer_key]:
                 mark += 1
             else:
                 mark -= 0.25
