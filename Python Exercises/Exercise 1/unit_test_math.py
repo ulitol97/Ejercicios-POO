@@ -1,6 +1,7 @@
 import unittest
 import MathClassExample
 
+
 class TestUM(unittest.TestCase):
     """Part of exercise 1, where we test the functionality of an example Math class"""
     def setUp(self):
