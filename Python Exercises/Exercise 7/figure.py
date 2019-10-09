@@ -39,13 +39,14 @@ class Circle (Figure):
         return math.pi * self.radius**2
 
 
-c1 = Circle(2)
-c2 = Circle(3)
-s1 = Square(2)
-s2 = Square(3)
+if __name__ == "__main__":
+    c1 = Circle(2)
+    c2 = Circle(3)
+    s1 = Square(2)
+    s2 = Square(3)
 
-print (c1.area())
-print (c2.area())
-print (s1.area())
-print (s2.area())
-print(Figure.are_archenemy(s1, c2))
+    print (c1.area())
+    print (c2.area())
+    print (s1.area())
+    print (s2.area())
+    print(Figure.are_archenemy(s1, c2))
