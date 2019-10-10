@@ -1,20 +1,19 @@
-class Coche():
-    """Sample car class"""
+class Coche:
 
     def __init__(self):
         self.matricula = "1234567V"
         self.motor = "EngineV2"
         self.color = "Red"
-        self.propietario = "Propietario"
+        self.propietario = "Pepe"
         self.ruedas = ["wh1", "wh2", "wh3", "wh4"]
 
-    def cambiar_rueda(self):
+    def meth_cambiar_rueda(self):
         pass
 
-    def pintar(self):
+    def meth_pintar(self):
         pass
 
-    def vender(self):
+    def meth_vender(self):
         pass
 
     def __getattribute__(self, name):
@@ -28,6 +27,7 @@ class Coche():
         return None
 
     def __setattr__(self, key, value):
+        # Checking if it is a method. A method will have and attribute '__call__'
         if hasattr(value, "__call__"):
             key = "meth_{0}".format(key)
         else:
@@ -50,8 +50,12 @@ class Coche():
             super.__delattr__(meth)
         elif hasattr(self, meth):
             super.__delattr__(attr)
+        else:
+            return
 
 
 if __name__ == '__main__':
     car = Coche()
     print(car.matricula)
+
+    # Pruebas añadiendo, quitando cosas etc.
