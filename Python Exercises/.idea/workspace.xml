@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="dce32272-fc78-42a8-ad70-68731610a9cb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercise 7/figure.py" beforeDir="false" afterPath="$PROJECT_DIR$/Exercise 7/figure.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercise 8/crono_state.py" beforeDir="false" afterPath="$PROJECT_DIR$/Exercise 8/crono_state.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,7 +26,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Advanced Python Exercises" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
@@ -89,7 +89,7 @@
       <workItem from="1570469665592" duration="4034000" />
       <workItem from="1570492622282" duration="216000" />
       <workItem from="1570492853925" duration="343000" />
-      <workItem from="1570551210032" duration="14180000" />
+      <workItem from="1570551210032" duration="16814000" />
     </task>
     <servers />
   </component>

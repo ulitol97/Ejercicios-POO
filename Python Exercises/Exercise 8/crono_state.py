@@ -2,7 +2,7 @@ import time
 
 
 class ChronometerStarted:
-
+    """A started chronometer"""
     def __init__(self):
         self._start = time.time()
         self._stop = 0
@@ -19,13 +19,14 @@ class ChronometerStarted:
         print("Timer stopped after {0} seconds".format(self._stop-self._start))
         self.__class__ = ChronometerStopped
 
+#   My solution
     # def change_state(self):
     #     print ("Chronometer started at time {0}".format(time_start))
     #     self.__class__ = ChronometerStopped
 
 
 class ChronometerStopped:
-
+    """A stopped chronometer"""
     def __init__(self):
         self._start = 0
         self._stop = time.time()
@@ -42,6 +43,7 @@ class ChronometerStopped:
         print("Timer already stopped")
         pass
 
+#   My solution
     # def change_state(self):
     #     time_stop = time.time()
     #     self._stop = time_stop
