@@ -1,39 +1,40 @@
-class Coche:
+import types
 
-    def __init__(self):
-        self.matricula = "1234567V"
-        self.motor = "EngineV2"
-        self.color = "Red"
-        self.propietario = "Pepe"
-        self.ruedas = ["wh1", "wh2", "wh3", "wh4"]
+
+class Coche:
+    def __init__(self, matricula, motor, color, propietario, ruedas):
+        self.matricula = matricula
+        self.motor = motor
+        self.propietario = propietario
+        self.ruedas = ruedas
 
     def meth_cambiar_rueda(self):
-        pass
+        print("Changing wheel")
 
     def meth_pintar(self):
-        pass
+        print("Painted")
 
-    def meth_vender(self):
-        pass
+    def meth_vender(self, propietario):
+        print("Selling car to {0}".format(propietario))
+        self.propietario = propietario
+
+    def __setattr__(self, name, value):
+        if hasattr(value, '__call__'):
+            name = "meth_{}".format(name)
+        else:
+            name = "attr_{}".format(name)
+        super().__setattr__(name, value)
 
     def __getattr__(self, name):
-        meth = 'meth_{0}'.format(name)
-        attr = 'attr_{0}'.format(name)
+        meth = "meth_{}".format(name)
+        attr = "attr_{}".format(name)
 
         if attr in self.__dict__:
             return self.__dict__[attr]
-        elif meth in self.__dict__:
-            return self.__dict__[meth]
+        if meth in self.__dir__():
+            # Principal diferencia
+            return super().__getattribute__(meth)
         return None
-
-    def __setattr__(self, key, value):
-        # Checking if it is a method. A method will have and attribute '__call__'
-        if hasattr(value, "__call__"):
-            key = "meth_{0}".format(key)
-        else:
-            key = "attr_{0}".format(key)
-
-        super().__setattr__(key, value)
 
     def __delattr__(self, item):
         if item == 'vender':
@@ -43,22 +44,50 @@ class Coche:
         if item == 'propietario':
             return
 
-        meth = 'meth_{0}'.format(item)
-        attr = 'attr_{0}'.format(item)
-
+        meth = "meth_{}".format(item)
+        attr = "attr_{}".format(item)
         if hasattr(self, meth):
-            super.__delattr__(meth)
-        elif hasattr(self, meth):
-            super.__delattr__(attr)
+            super().__delattr__(meth)
+        elif hasattr(self, attr):
+            super().__delattr__(attr)
         else:
             return
 
 
+# Quiroga's main
 if __name__ == '__main__':
+    c = Coche('1234567V', 'EngineV2', 'Red', 'Edu', ['r1', 'r2', 'r3', 'r4'])
+    print(c.matricula)
+    print([f for f in dir(c) if not f.startswith('__')])
+    c.combustible = "barato"
+    print([f for f in dir(c) if not f.startswith('__')])
+    print(c.combustible)
+    c.acelera = lambda: print("acelera mucho")
+    print([f for f in dir(c) if not f.startswith('__')])
+    c.acelera()
 
-    car = Coche()
-    print(car.__dict__)
-    print(car.__dir__())
-    print(car.matricula)
+    del c.vender
+    del c.acelera
+    del c.matricula
+    print([f for f in dir(c) if not f.startswith('__')])
 
-    # Pruebas añadiendo, quitando cosas etc.
+    mi_funcion = lambda self: print("soy {}".format(self.attr_matricula))
+    c.identificate = types.MethodType(mi_funcion, c)
+    c.identificate()
+
+    mi_funcion = lambda self: print("soy {}".format(getattr(self, 'matricula')))
+    c.identificate_v2 = types.MethodType(mi_funcion, c)
+    c.identificate_v2()
+    print([f for f in dir(c) if not f.startswith('__')])
+
+# My main
+# if __name__ == '__main__':
+#
+#     car = Coche('1234567V', 'EngineV2', 'Red', 'Edu', ['r1', 'r2', 'r3', 'r4'])
+#     print(car.__dict__)
+#     print(car.__dir__())
+#     car.vender('Alex')
+#     print(car.__dict__)
+#     print(car.__dir__())
+#
+#     print(car.propietario)
