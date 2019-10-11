@@ -16,7 +16,7 @@ class Coche:
     def meth_vender(self):
         pass
 
-    def __getattribute__(self, name):
+    def __getattr__(self, name):
         meth = 'meth_{0}'.format(name)
         attr = 'attr_{0}'.format(name)
 
@@ -55,7 +55,10 @@ class Coche:
 
 
 if __name__ == '__main__':
+
     car = Coche()
+    print(car.__dict__)
+    print(car.__dir__())
     print(car.matricula)
 
     # Pruebas añadiendo, quitando cosas etc.
