@@ -1,18 +1,21 @@
+import types
+
+
 class Coche:
-    def __init__(self,matricula,motor,propietario,ruedas):
+    def __init__(self, matricula, motor, color, propietario, ruedas):
         self.matricula = matricula
         self.motor = motor
         self.propietario = propietario
         self.ruedas = ruedas
 
     def meth_cambiar_rueda(self):
-        print("Cambiando rueda")
+        print("Changing wheel")
 
     def meth_pintar(self):
-        print("Pintando")
+        print("Painted")
 
     def meth_vender(self, propietario):
-        print("Vendiendo coche a {0}".format(propietario))
+        print("Selling car to {0}".format(propietario))
         self.propietario = propietario
 
     def __setattr__(self, name, value):
@@ -51,11 +54,40 @@ class Coche:
             return
 
 
+# Quiroga's main
+if __name__ == '__main__':
+    c = Coche('1234567V', 'EngineV2', 'Red', 'Edu', ['r1', 'r2', 'r3', 'r4'])
+    print(c.matricula)
+    print([f for f in dir(c) if not f.startswith('__')])
+    c.combustible = "barato"
+    print([f for f in dir(c) if not f.startswith('__')])
+    print(c.combustible)
+    c.acelera = lambda: print("acelera mucho")
+    print([f for f in dir(c) if not f.startswith('__')])
+    c.acelera()
 
-c = Coche('m1','m2','paco',['r1', 'r2', 'r3', 'r4'])
-print(c.__dict__)
-print(c.__dir__())
-c.vender('antonio')
-print(c.propietario)
+    del c.vender
+    del c.acelera
+    del c.matricula
+    print([f for f in dir(c) if not f.startswith('__')])
 
+    mi_funcion = lambda self: print("soy {}".format(self.attr_matricula))
+    c.identificate = types.MethodType(mi_funcion, c)
+    c.identificate()
 
+    mi_funcion = lambda self: print("soy {}".format(getattr(self, 'matricula')))
+    c.identificate_v2 = types.MethodType(mi_funcion, c)
+    c.identificate_v2()
+    print([f for f in dir(c) if not f.startswith('__')])
+
+# My main
+# if __name__ == '__main__':
+#
+#     car = Coche('1234567V', 'EngineV2', 'Red', 'Edu', ['r1', 'r2', 'r3', 'r4'])
+#     print(car.__dict__)
+#     print(car.__dir__())
+#     car.vender('Alex')
+#     print(car.__dict__)
+#     print(car.__dir__())
+#
+#     print(car.propietario)
