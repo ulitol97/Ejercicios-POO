@@ -53,13 +53,35 @@ class TreeSet:
         return ret + "]"
 
 
+class ComparatorDNI:
+
+    def compare(self, person1, person2):
+        if person1.dni >= person2.dni:
+            return 1
+        else:
+            return -1
+
+
+class ComparatorAge:
+
+    def compare(self, person1, person2):
+        if person1.age >= person2.age:
+            return 1
+        else:
+            return -1
+
 if __name__ == '__main__':
-    tree_set = TreeSet()
-    person = Person ("Edu", "Ulibarri")
-    person1 = Person ("Alex", "ZZZ")
-    person2 = Person ("Marcial", "ZZZ")
-    tree_set.add(person)
-    tree_set.add(person1)
-    tree_set.add(person2)
-    print (tree_set)
-    print (type(TreeSet))
+    tree_set = TreeSet()    # Standard tree set
+    tree_set_dni = TreeSet()    # Tree set comparing by DNI
+    tree_set_age = TreeSet()    # Tree set comparing by age
+
+    p1 = Person("Edu", "A", 21)
+    p2 = Person("Alex", "B", 22)
+    p3 = Person("Marcial", "C", 23)
+
+    tree_set.add(p1)
+    tree_set.add(p2)
+    tree_set.add(p3)
+
+    print(tree_set)
+    print(type(TreeSet))

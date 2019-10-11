@@ -2,7 +2,7 @@ from datetime import datetime
 
 
 class Ticket:
-    """Docuaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"""
+    """Documentación de más de 20 caracteres"""
     def __init__(self, products=[]):
         self.products = products
         self.date = datetime.now()
@@ -16,7 +16,7 @@ class Ticket:
 
 
 class Product:
-    """Docuaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"""
+    """Documentación de más de 20 caracteres"""
     def __init__(self, price=1, amount=1):
         self.price = price
         self.amount = amount
