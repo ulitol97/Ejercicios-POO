@@ -1,7 +1,7 @@
 def is_prime(num):
     if num > 1:
         # check for factors
-        for i in range(2, num): # Check from 2 to all numbers excluding the number itself
+        for i in range(2, num):  # Check from 2 to all numbers excluding the number itself
             if (num % i) == 0:
                 return False
         return True
