@@ -13,7 +13,7 @@ class AbstractFactory:
     def get_factory(factory_type):
         if factory_type == 'Windows':
             return WindowsFactory()
-        else:
+        elif factory_type == 'Linux':
             return LinuxFactory()
 
     @abstractmethod
