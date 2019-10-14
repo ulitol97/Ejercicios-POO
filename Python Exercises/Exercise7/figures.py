@@ -8,11 +8,11 @@ class Figure:
 
     @staticmethod
     def areas (figures):
-        """Get a list with the areas of a list of figures"""
-        areas = []
+        """Get the total area of a list of figures"""
+        total_area = 0
         for figure in figures:
-            areas.append(figure.area())
-        return areas
+            total_area += figure.area()
+        return total_area
 
     @staticmethod
     def are_archenemy (figure1, figure2):
@@ -21,6 +21,7 @@ class Figure:
 
 
 class Square (Figure):
+    """Class representing a Square, which is a Figure"""
     def __init__(self, side_length):
         super().__init__()
         self.width = side_length
@@ -31,6 +32,7 @@ class Square (Figure):
 
 
 class Circle (Figure):
+    """Class representing a Circle, which is a Figure"""
     def __init__(self, radius):
         super().__init__()
         self.radius = radius
@@ -40,13 +42,18 @@ class Circle (Figure):
 
 
 if __name__ == "__main__":
+    """Sample main to test functionality. Create a different figures and check its methods and types"""
     c1 = Circle(2)
+    print("Circle 1 area: {}".format(c1.area()))
     c2 = Circle(3)
+    print("Circle 2 area: {}".format(c2.area()))
     s1 = Square(2)
+    print("Square 1 area: {}".format(s1.area()))
     s2 = Square(3)
+    print("Square 2 area: {}".format(s2.area()))
 
-    print (c1.area())
-    print (c2.area())
-    print (s1.area())
-    print (s2.area())
+    print("Total area of the four figures: {}".format(Figure.areas([c1, c2, s1, s2])))
+
+    print('Testing classes equality:')
+    print(Figure.are_archenemy(s1, s2))
     print(Figure.are_archenemy(s1, c2))
