@@ -1,13 +1,48 @@
 from flask import Flask, request, abort, render_template
+import is_prime
 
 app = Flask(__name__)
 
 
-@app.route('/', methods=["GET"])
-def hello_world():
-    name = request.args.get("name") or 'visitor'
-    return 'Hello World! (and {} too)'.format(name)
+# ---------------------- Ejercicio 1 de Flask ------------------------
 
+
+@app.route('/', methods=["GET"])
+def exercise_get():
+    return render_template("prime.html")
+
+
+@app.route('/', methods=["POST"])
+def exercise_post():
+    number = request.form['number']
+    try:
+        number = int(number)
+        if number < 1 or number > 2**22:
+            raise ValueError
+    except ValueError:
+        return render_template("prime.html", error=True)
+
+    prime = is_prime.is_prime(number)
+    factors = is_prime.get_prime_factors(number)
+
+    return render_template("results.html", number=number, is_prime=prime, prime_factors=factors)
+
+
+@app.errorhandler(403)
+def error_not_found(error):
+    """Basic error handler for 404 errors, overwrites the default behavior"""
+    print(error)
+    return "Page forbidden", 403
+
+
+@app.errorhandler(404)
+def error_not_found(error):
+    """Basic error handler for 404 errors, overwrites the default behavior"""
+    print(error)
+    return "Page not found", 404
+
+
+# ---------------------- Por debajo se ubican otras pruebas hechas con Flask durante la clase ------------------------
 
 @app.route('/type1/<string:string_param>', methods=["GET"])
 def type1(string_param):
@@ -62,20 +97,6 @@ def error():
     """Returns an error depending on the code specified when aborting.The error is handled by the code of the
     handlers """
     return abort(403)
-
-
-@app.errorhandler(403)
-def error_not_found(error):
-    """Basic error handler for 404 errors, overwrites the default behavior"""
-    print(error)
-    return "Page forbidden", 403
-
-
-@app.errorhandler(404)
-def error_not_found(error):
-    """Basic error handler for 404 errors, overwrites the default behavior"""
-    print(error)
-    return "Page not found", 404
 
 
 if __name__ == '__main__':

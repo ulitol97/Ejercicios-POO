@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prime number calculator</title>
+    <link rel="stylesheet" href="/static/prime.css">
+</head>
+<body>
+    <h1>Introduce a number to check if it is prime.<br/>
+        If it is, its prime factors will be displayed!
+    </h1>
+    {% if error == True %}
+        <p class="error-text">Number must be an integer greater than 0</p>
+    {% endif %}
+    <form action="/" method="post">
+        <input type="number" name="number" placeholder="Number..." min="1" max="4194304" step="1" autocomplete="off" required="required"/>
+    <button class="my-button" type="submit"> Check!</button>
+    </form>
+</body>
+</html>

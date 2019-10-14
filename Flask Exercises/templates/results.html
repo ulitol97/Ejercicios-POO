@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Results for number {{ number }}</title>
+    <link rel="stylesheet" href="/static/prime.css">
+</head>
+<body>
+    <h1>Results for number {{ number }} are the following:
+    </h1>
+    {% if is_prime == True %}
+        <p class="result">Number {{ number }} <b>is</b> prime</p>
+    {% else %}
+        <p class="result">Number {{ number }} <b>is not</b> prime</p>
+    {% endif %}
+
+    {% if prime_factors|length == 0 %}
+        <p>Number {{ number }} has no prime factors</p>
+    {% else %}
+        <p>The prime factors of {{ number }} are:</p>
+        <ul class="result-list">
+        {% for factor in prime_factors %}
+            <li class="result-list-member">{{ factor }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    <p><a class="return-link" href="/">Volver</a></p>
+</body>
+</html>
