@@ -2,20 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dce32272-fc78-42a8-ad70-68731610a9cb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Advanced Python Exercises/Exercise 3/duck_typing.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Advanced Python Exercises/Exercise 3/duck_typing.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Exercise3/even_or_odd_test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Exercise3/factorial_test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercise 1/MathClassExample.py" beforeDir="false" afterPath="$PROJECT_DIR$/Exercise1-2/MathClassExample.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercise 1/hello_world.py" beforeDir="false" afterPath="$PROJECT_DIR$/Exercise1-2/hello_world.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercise 1/unit_test_hello_world.py" beforeDir="false" afterPath="$PROJECT_DIR$/Exercise1-2/unit_test_hello_world.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercise 1/unit_test_math.py" beforeDir="false" afterPath="$PROJECT_DIR$/Exercise1-2/unit_test_math.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercise 3/even_or_odd.py" beforeDir="false" afterPath="$PROJECT_DIR$/Exercise3/even_or_odd.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercise 3/factorial.py" beforeDir="false" afterPath="$PROJECT_DIR$/Exercise3/factorial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercise 4/is_prime.py" beforeDir="false" afterPath="$PROJECT_DIR$/Exercise4/is_prime.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercise 4/prime_factors.py" beforeDir="false" afterPath="$PROJECT_DIR$/Exercise4/prime_factors.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercise 5/team.py" beforeDir="false" afterPath="$PROJECT_DIR$/Exercise5/team.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercise 6/calculate_marks.py" beforeDir="false" afterPath="$PROJECT_DIR$/Exercise6/calculate_marks.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercise 7/figure.py" beforeDir="false" afterPath="$PROJECT_DIR$/Exercise7/figure.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercise 8/crono_state.py" beforeDir="false" afterPath="$PROJECT_DIR$/Exercise8/crono_state.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercise1-2/unit_test_hello_world.py" beforeDir="false" afterPath="$PROJECT_DIR$/Exercise1-2/hello_world_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercise1-2/unit_test_math.py" beforeDir="false" afterPath="$PROJECT_DIR$/Exercise1-2/math_example_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercise3/even_or_odd.py" beforeDir="false" afterPath="$PROJECT_DIR$/Exercise3/even_or_odd.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercise3/factorial.py" beforeDir="false" afterPath="$PROJECT_DIR$/Exercise3/factorial.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -105,7 +98,7 @@
       <workItem from="1570492853925" duration="343000" />
       <workItem from="1570551210032" duration="16814000" />
       <workItem from="1570815403677" duration="1534000" />
-      <workItem from="1571050276881" duration="991000" />
+      <workItem from="1571050276881" duration="1728000" />
     </task>
     <servers />
   </component>

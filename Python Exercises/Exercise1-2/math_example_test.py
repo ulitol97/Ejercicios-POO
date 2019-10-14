@@ -30,4 +30,5 @@ class TestUM(unittest.TestCase):
         self.assertFalse(self.testClass.equal('3', 'a'))
 
 
-unittest.main()
+if __name__ == "__main__":
+    unittest.main()

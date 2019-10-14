@@ -1,4 +1,5 @@
 def factorial(n):
+    """Compute the factorial of a number if it is possible (above zero)"""
     if n < 0:
         raise Exception("Negative numbers don't have factorial")
     else:
