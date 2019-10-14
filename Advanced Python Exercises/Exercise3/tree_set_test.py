@@ -3,10 +3,10 @@ import tree_set
 
 
 class TestUM(unittest.TestCase):
-    """Unit tests of advanced exercise 2, duck typing with a tree set"""
+    """Unit tests of advanced exercise 3, duck typing with a tree set"""
 
     def setUp(self):
-        print("Executing test of advanced exercise 2: duck typing with a tree set")
+        print("Executing test of advanced exercise 3: duck typing with a tree set")
 
     def test_person_set_up(self):
         """Init a person and check the attribute names have been stored correctly"""
