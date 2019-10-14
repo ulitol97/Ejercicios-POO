@@ -1,5 +1,6 @@
 from datetime import datetime
-
+"""Este fichero .py contiene una solución hecha por mí a la clase de test que entregué a mi compañero. 
+Hecha para facilitar la realización de pruebas"""
 
 class Ticket:
     """Documentación de más de 20 caracteres"""
