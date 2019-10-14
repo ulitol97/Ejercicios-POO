@@ -1,7 +1,3 @@
-# El treeset es un set y que al meterle una persona debe saber como compararlas.
-# Necesitamos implementar el Compare() en persona
-
-
 class Person:
     """Sample person class"""
     def __init__(self, name, surname, age=18, dni='1234567V'):
@@ -11,10 +7,16 @@ class Person:
         self.dni = dni
 
     def compare_to(self, person):
-        if self.surname >= person.surname:
-            return 1
+        if not (self.surname == person.surname):
+            if self.surname >= person.surname:
+                return 1
+            else:
+                return -1
         else:
-            return -1
+            if self.name >= person.name:
+                return 1
+            else:
+                return -1
 
 
 class TreeSet:
@@ -72,9 +74,10 @@ class ComparatorAge:
 
 
 if __name__ == '__main__':
+    """Sample main to test the functionality of the TreeSet with each comparator"""
     tree_set = TreeSet()  # Standard tree set
-    tree_set_dni = TreeSet()  # Tree set comparing by DNI
-    tree_set_age = TreeSet()  # Tree set comparing by age
+    tree_set_dni = TreeSet(ComparatorDNI())  # Tree set comparing by DNI
+    tree_set_age = TreeSet(ComparatorAge())  # Tree set comparing by age
 
     p1 = Person("Edu", "A", 70, "251436")
     p2 = Person("Alex", "B", 28, "251427")
