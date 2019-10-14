@@ -1,4 +1,5 @@
 import unittest
+import math
 import figures
 
 
@@ -9,26 +10,38 @@ class TestUM(unittest.TestCase):
         print("Executing test of exercise 7: figures")
 
     def test_square(self):
-        """Try to init a person without name"""
+        """Init a square and test its functionality"""
         with self.assertRaises(TypeError):
-            p = team.Person()
+            s = figures.Square()
+        s = figures.Square(5)
+        self.assertEqual(s.width, 5)
+        self.assertEqual(s.width, s.height)
+        self.assertIs(s.area(), 25)
 
     def test_circle(self):
-        """Init a person correctly"""
-        p = team.Person('Name')
-        self.assertEqual(p.name, 'Name')
+        """Init a circle and test its functionality"""
+        with self.assertRaises(TypeError):
+            c = figures.Circle()
+        c = figures.Circle(4)
+        self.assertEqual(c.radius, 4)
+        self.assertAlmostEqual(c.area(), math.pi*c.radius**2)
 
     def test_figures_areas(self):
-        """Init a player with name and number"""
-        p = team.Player ('Player', 13)
-        self.assertEqual(p.name, 'Player')
-        self.assertEqual(p.number, 13)
-        self.assertEqual(p.__str__(), 'Player: Player - Number: 13')
+        """Test the figure area functionality"""
+        s = figures.Square(10)
+        c = figures.Circle(10)
+        self.assertAlmostEqual(s.area() + c.area(), figures.Figure.areas([s, c]))
 
     def test_figures_types(self):
-        """Init a coach with name"""
-        c = team.Coach('Name')
-        self.assertEqual(c.name, 'Name')
+        """Test the figure arch_enemy functionality"""
+        s1 = figures.Square(10)
+        s2 = figures.Square(5)
+        c1 = figures.Circle(10)
+        c2 = figures.Circle(5)
+        self.assertFalse(figures.Figure.are_archenemy (s1, c1))
+        self.assertFalse(figures.Figure.are_archenemy (c2, s2))
+        self.assertTrue(figures.Figure.are_archenemy (c1, c2))
+        self.assertTrue(figures.Figure.are_archenemy (s1, s2))
 
 
 if __name__ == "__main__":
