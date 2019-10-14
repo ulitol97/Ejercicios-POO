@@ -12,4 +12,5 @@ class TestExercise1(unittest.TestCase):
         self.assertEqual(self.testClass.run(), 'Hello Master!!')
 
 
-unittest.main()
+if __name__ == "__main__":
+    unittest.main()

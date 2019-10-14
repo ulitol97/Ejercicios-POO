@@ -1,11 +1,11 @@
 import unittest
-import MathClassExample
+import math_example
 
 
 class TestUM(unittest.TestCase):
     """Part of exercise 1, where we test the functionality of an example Math class"""
     def setUp(self):
-        self.testClass = MathClassExample.Math()
+        self.testClass = math_example.Math()
         print("Executing test of example class: Math")
 
     def test_mul_1(self):

@@ -70,10 +70,11 @@ class ComparatorAge:
         else:
             return -1
 
+
 if __name__ == '__main__':
-    tree_set = TreeSet()    # Standard tree set
-    tree_set_dni = TreeSet()    # Tree set comparing by DNI
-    tree_set_age = TreeSet()    # Tree set comparing by age
+    tree_set = TreeSet()  # Standard tree set
+    tree_set_dni = TreeSet()  # Tree set comparing by DNI
+    tree_set_age = TreeSet()  # Tree set comparing by age
 
     p1 = Person("Edu", "A", 21)
     p2 = Person("Alex", "B", 22)
