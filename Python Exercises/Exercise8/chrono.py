@@ -9,6 +9,7 @@ class ChronometerStarted:
 
     def time (self):
         print("The timer has been running for {0} seconds".format(time.time() - self._start))
+        return time.time() - self._start
 
     def start(self):
         self._start = time.time()
@@ -53,6 +54,8 @@ class ChronometerStopped:
 
 
 if __name__ == "__main__":
+    """Sample main to test functionality. Create a timer and toy with it seeing the debug messages prepared in the 
+    code """
     timer = ChronometerStarted()
     time.sleep(1)
     timer.time()
