@@ -5,6 +5,7 @@ class Coche:
     def __init__(self, matricula, motor, color, propietario, ruedas):
         self.matricula = matricula
         self.motor = motor
+        self.color = color
         self.propietario = propietario
         self.ruedas = ruedas
 
@@ -15,7 +16,7 @@ class Coche:
         print("Painted")
 
     def meth_vender(self, propietario):
-        print("Selling car to {0}".format(propietario))
+        print("Selling car to {}".format(propietario))
         self.propietario = propietario
 
     def __setattr__(self, name, value):
@@ -54,8 +55,9 @@ class Coche:
             return
 
 
-# Quiroga's main
 if __name__ == '__main__':
+    """Sample main to test functionality. Create a car an add some attrs and methods, etc."""
+
     c = Coche('1234567V', 'EngineV2', 'Red', 'Edu', ['r1', 'r2', 'r3', 'r4'])
     print(c.matricula)
     print([f for f in dir(c) if not f.startswith('__')])
@@ -79,15 +81,3 @@ if __name__ == '__main__':
     c.identificate_v2 = types.MethodType(mi_funcion, c)
     c.identificate_v2()
     print([f for f in dir(c) if not f.startswith('__')])
-
-# My main
-# if __name__ == '__main__':
-#
-#     car = Coche('1234567V', 'EngineV2', 'Red', 'Edu', ['r1', 'r2', 'r3', 'r4'])
-#     print(car.__dict__)
-#     print(car.__dir__())
-#     car.vender('Alex')
-#     print(car.__dict__)
-#     print(car.__dir__())
-#
-#     print(car.propietario)
