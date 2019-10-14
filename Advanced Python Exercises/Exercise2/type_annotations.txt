@@ -1,0 +1,6 @@
+Se han añadido anotaciones de tipo a los siguientes ejercicios:
+
+- Python ejercicio 1: Hello World y sus tests
+- Python ejercicio 3: par/impar y factorial y sus tests
+- Python ejercicio 5: Equipo y sus tests
+- Python ejercicio 7: Figuras y sus tests

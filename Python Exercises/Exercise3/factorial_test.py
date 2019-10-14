@@ -5,19 +5,19 @@ import factorial
 class TestUM(unittest.TestCase):
     """Unit tests of exercise 3, factorial"""
 
-    def setUp(self):
+    def setUp(self) -> None:
         print("Executing test of exercise 3: factorial")
 
-    def test_fact_1(self):
+    def test_fact_1(self) -> None:
         self.assertEqual(factorial.factorial (5), 120)
 
-    def test_fact_2(self):
+    def test_fact_2(self) -> None:
         self.assertEqual(factorial.factorial (8), 40320)
 
-    def test_fact_3(self):
+    def test_fact_3(self) -> None:
         self.assertEqual(factorial.factorial (12), 479001600)
 
-    def test_fact_4(self):
+    def test_fact_4(self) -> None:
         self.assertEqual(factorial.factorial (15), 1307674368000)
 
 

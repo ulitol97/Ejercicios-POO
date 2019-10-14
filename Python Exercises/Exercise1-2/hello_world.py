@@ -1,7 +1,7 @@
 class Program:
     """Example class"""
 
-    def run(self):
+    def run(self) -> str:
         return 'Hello Master!!'
 
 
@@ -11,5 +11,5 @@ class Program:
 # and the main function will not be executed while the functions and vars are imported in the interpreter.
 
 if __name__ == "__main__":
-    program = Program()
+    program: Program = Program()
     print (program.run())
