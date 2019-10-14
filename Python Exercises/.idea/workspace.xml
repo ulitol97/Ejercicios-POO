@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dce32272-fc78-42a8-ad70-68731610a9cb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Advanced Python Exercises/Exercise2/type_annotations.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercise1-2/hello_world.py" beforeDir="false" afterPath="$PROJECT_DIR$/Exercise1-2/hello_world.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercise1-2/hello_world_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/Exercise1-2/hello_world_test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercise3/even_or_odd.py" beforeDir="false" afterPath="$PROJECT_DIR$/Exercise3/even_or_odd.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercise3/even_or_odd_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/Exercise3/even_or_odd_test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercise3/factorial.py" beforeDir="false" afterPath="$PROJECT_DIR$/Exercise3/factorial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercise3/factorial_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/Exercise3/factorial_test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercise5/team.py" beforeDir="false" afterPath="$PROJECT_DIR$/Exercise5/team.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercise5/team_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/Exercise5/team_test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercise7/figures.py" beforeDir="false" afterPath="$PROJECT_DIR$/Exercise7/figures.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercise7/figures_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/Exercise7/figures_test.py" afterDir="false" />
-    </list>
+    <list default="true" id="dce32272-fc78-42a8-ad70-68731610a9cb" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +92,7 @@
       <workItem from="1570815403677" duration="1534000" />
       <workItem from="1571050276881" duration="7556000" />
       <workItem from="1571063711773" duration="8000" />
-      <workItem from="1571064872368" duration="2571000" />
+      <workItem from="1571064872368" duration="2650000" />
     </task>
     <servers />
   </component>
