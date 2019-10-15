@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dce32272-fc78-42a8-ad70-68731610a9cb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Flask Exercises/is_prime.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Flask Exercises/static/prime.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Flask Exercises/templates/prime.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Flask Exercises/templates/results.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Flask Exercises/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Flask Exercises/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="dce32272-fc78-42a8-ad70-68731610a9cb" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,6 +94,7 @@
       <workItem from="1571063711773" duration="8000" />
       <workItem from="1571064872368" duration="2650000" />
       <workItem from="1571087522769" duration="1222000" />
+      <workItem from="1571140191809" duration="63000" />
     </task>
     <servers />
   </component>
