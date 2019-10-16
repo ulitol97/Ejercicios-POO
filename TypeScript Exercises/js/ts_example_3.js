@@ -4,10 +4,10 @@ function sqrt(list) {
 }
 // Ejemplo correcto
 var numbers = [4, 9, 16, 25];
-var result = sqrt(numbers);
+var result = sqrt(numbers); // Type of 'result' inferred from the return of sqrt
 console.log('Square roots: ' + result);
 // Ejemplo incorrecto
-var letters = ['a', 'b', 'c', 'd'];
-var result_2 = sqrt(letters);
-console.log('Square roots: ' + result_2);
+//let letters: string[] = ['a', 'b', 'c', 'd']
+//let result_2 = sqrt(letters)
+//console.log('Square roots: ' + result_2)
 //# sourceMappingURL=ts_example_3.js.map
