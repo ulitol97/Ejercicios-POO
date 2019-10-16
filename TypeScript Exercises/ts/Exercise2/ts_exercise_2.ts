@@ -9,7 +9,6 @@ let squareSizeStr: string = squareSizeNum+'px'
 // Exercise 2
 class ColorChange {
   constructor(public div: Element){
-    this.div = div
   }
 
   changeColor (color: string): boolean {

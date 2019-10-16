@@ -3,8 +3,8 @@ function sqrt(list) {
     return list.map(Math.sqrt);
 }
 // Ejemplo correcto
-var numbers = [4, 9, 16, 25];
-var result = sqrt(numbers); // Type of 'result' inferred from the return of sqrt
+let numbers = [4, 9, 16, 25];
+let result = sqrt(numbers); // Type of 'result' inferred from the return of sqrt
 console.log('Square roots: ' + result);
 // Ejemplo incorrecto
 //let letters: string[] = ['a', 'b', 'c', 'd']
