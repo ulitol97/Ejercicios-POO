@@ -1,4 +1,4 @@
-// ts - Exercise 1.Generate a button to change the background color of the <div> tag 
+// ts - Exercise 1. Generate a button to change the background color of the <div> tag 
 var color = "magenta";
 var squareSizeNum = 100;
 var squareSizeStr = squareSizeNum + 'px';

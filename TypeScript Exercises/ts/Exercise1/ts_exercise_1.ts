@@ -1,4 +1,4 @@
-// ts - Exercise 1.Generate a button to change the background color of the <div> tag 
+// ts - Exercise 1. Generate a button to change the background color of the <div> tag 
 
 let color :string = "magenta"
 
