@@ -1,4 +1,5 @@
-// ts - Exercise 4. Random dice throw
+// TypeScript - Exercise 4. Random dice throw
+// Future style properties
 let diceSize = 100;
 let diceSizeStr = diceSize + 'px';
 let diceMargin = 15;
@@ -9,6 +10,7 @@ class Dice {
         this.span = span;
         // The span will contain the number inside the div, which is the dice
         div.appendChild(span);
+        this.changeNumber();
     }
     changeNumber() {
         // Random number 1-6
@@ -21,12 +23,9 @@ let dices = [];
 for (let i = 0; i < 4; i++) {
     // Create dice
     dices.push(new Dice(document.createElement('div'), document.createElement('span')));
-    // Place a random number in range 1-6
-    dices[i].changeNumber();
-    // Set the style place a random number
+    // Set the style of the dice
     dices[i].div.style.width = diceSizeStr;
     dices[i].div.style.height = diceSizeStr;
-    dices[i].div.style.margin = diceMarginStr;
     dices[i].div.style.margin = diceMarginStr;
     dices[i].div.style.textAlign = 'center';
     dices[i].div.style.position = 'relative';
@@ -40,13 +39,13 @@ for (let i = 0; i < 4; i++) {
 // Create throw button
 let throw_button = document.createElement('button');
 document.body.appendChild(throw_button);
-// Set text
-throw_button.textContent = 'Throw dices';
-// Set style
+// Set button text
+throw_button.textContent = 'Roll the dice';
+// Set button style
 throw_button.style.width = diceSizeStr;
 throw_button.style.height = diceSizeStr;
 throw_button.style.margin = diceMarginStr;
-// Set behaviour
+// Set button behaviour
 throw_button.onclick = (event) => {
     for (let i = 0; i < dices.length; i++) {
         dices[i].changeNumber();

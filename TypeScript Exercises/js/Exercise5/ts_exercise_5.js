@@ -1,4 +1,4 @@
-// ts - Exercise 5. Linked list of points
+// TypeScript - Exercise 5. Linked list of points.
 // Point class, storing coordinates and a reference to the next point
 class Point {
     // Set random values for the point in the range [-10, 10]
@@ -10,66 +10,55 @@ class Point {
             this.data.z = Math.floor(Math.random() * 21 - 10);
     }
 }
-// Creates a quick linked list of points and returns the initial one
-function createLinkedPoints(n) {
-    let og_point = new Point();
-    let point = og_point;
-    for (let i = 0; i < n; i++) {
-        if (i != n - 1) {
-            point.next = new Point;
-            point = point.next;
-        }
+// Stores an array of points. Can return them all nested from the first one as if it was a linked list.
+class LinkedListPoints {
+    constructor() {
+        this.points = [];
     }
-    return og_point;
+    add(point) {
+        this.points.push(point);
+    }
+    // Return the array of points arranged as a LinkedList
+    list() {
+        if (this.points.length == 0)
+            return {};
+        let final_point = new Point(); // Point that will be modified
+        let return_point = final_point; // Reference to the initial node that we will return
+        // Insert all positive points nested into a point that will be returned
+        for (let i = 0; i < this.points.length; i++) {
+            final_point.data = this.points[i].data;
+            final_point.next = this.points[i + 1];
+            final_point = final_point.next;
+        }
+        return return_point;
+    }
 }
-// For a list of linked points, returns a list of all linked points with an X > 0
+// Returns a linked list of 'n' points
+function createLinkedPoints(n) {
+    let linked_list = new LinkedListPoints();
+    for (let i = 0; i < n; i++) {
+        linked_list.add(new Point());
+    }
+    return linked_list.list();
+}
+// For a LinkedList of  points, returns a LinkedList of all points with x > 0
 function positivePointsX(input) {
-    // let point = input
-    // // The first point of the new linked points must be the first fulfilling the condition
-    // while (point.data.x <= 0 && point.next){
-    //   point = point.next
-    // }
-    // let og_point = point
-    // while (point.next){
-    //   if (point.next.data.x <= 0){
-    //     point.next = point.next.next
-    //     point = point.next
-    //   }
-    //   else {
-    //     point = point.next
-    //   }
-    // }
-    // let return_point = new Point()
-    // // The first point of the new linked points must be the first fulfilling the condition
-    // while (input.data.x <= 0){
-    //   input = input.next
-    // }
-    // return_point.data = input.data
-    // while (input.next){
-    //   input = input.next
-    //   if (input.data.x > 0){
-    //     return_point.next = new Point();
-    //     return_point.next.data = input.data;
-    //   }
-    // }
-    let positive_points = [];
+    // If a wrong input is given return nothing
+    if (!input.data)
+        return {};
+    // Store all positive X points into a LinkedList
+    let linked_list = new LinkedListPoints();
     if (input.data.x > 0)
-        positive_points.push(input);
+        linked_list.add(input);
     while (input.next) {
         input = input.next;
         if (input.data.x > 0)
-            positive_points.push(input);
+            linked_list.add(input);
     }
-    let final_point = new Point();
-    let return_point = final_point;
-    for (let i = 0; i < positive_points.length; i++) {
-        final_point.data = positive_points[i].data;
-        final_point.next = positive_points[i + 1];
-        final_point = final_point.next;
-    }
-    return return_point;
+    return linked_list.list();
 }
-let list = createLinkedPoints(5);
+// Program
+let list = createLinkedPoints(-4);
 console.log(JSON.stringify(list));
 let positive_list = positivePointsX(list);
 console.log(JSON.stringify(positive_list));
