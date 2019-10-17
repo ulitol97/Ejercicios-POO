@@ -8,7 +8,7 @@
       "type": "node",
       "request": "launch",
       "name": "Launch Program",
-      "program": "${workspaceFolder}\\ts\\ts_example_1.ts",
+      "program": "${workspaceFolder}\\ts\\Exercise5\\ts_exercise_5.ts",
       "console": "integratedTerminal",
       //"preLaunchTask": "tsc: build - tsconfig.json",
       "outFiles": [
