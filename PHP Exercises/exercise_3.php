@@ -2,17 +2,28 @@
 
 // Coordinate to represent 2D points
 class Coordinate {
-  public $x;
-  public $y;
-  function __construct($x, $y){
+  private $x;
+  private $y;
+
+  function __construct(float $x, float $y){
     $this->x = $x;
     $this->y = $y;
     }
-  
+
+  public function getX(): string {
+      return $this->x;
+  }
+
+  public function getY(): string {
+    return $this->y;
+  }
+
   // Re-define toString
-  public function __toString() {
+  public function __toString() : string {
       return "x: " . $this->x . " - y: " . $this->y;
   }
+
+
 }
 
 // Template Figure class
@@ -21,13 +32,25 @@ class Figure {
   public $n_vertices; // Number of vertices of the figure
   public $vertices = array(); // Array of vertices
 
-  function __construct($center, $vertices, $n_vertices){
+  function __construct(Coordinate $center, array $vertices, int $n_vertices){
     $this->center = $center;
     $this->n_vertices = $n_vertices;
 
     for ($i = 0; $i < $n_vertices; $i++){
       array_push ($this->vertices, $vertices[$i]);
     }
+  }
+
+  public function getCenter(): Coordinate {
+    return $this->center;
+  }
+
+  public function getNVertices(): int {
+    return $this->n_vertices;
+  }
+
+  public function getVertices(): array {
+    return $this->n_vertices;
   }
 
   // String representation of the Figure
@@ -46,7 +69,7 @@ class Figure {
 
 // Triangle figure
 class Triangulo extends Figure {
-  function __construct($center, $vertices){
+  function __construct(Coordinate $center, array $vertices){
       parent::__construct($center, $vertices, 3); // Maximum of 3 vertices
     }
   
@@ -57,7 +80,7 @@ class Triangulo extends Figure {
 
 // Square figure
 class Cuadrado extends Figure {
-  function __construct($center, $vertices){
+  function __construct(Coordinate $center, array $vertices){
     parent::__construct($center, $vertices, 4); // Maximum of 4 vertices
   }
   public function __toString() {
@@ -67,7 +90,7 @@ class Cuadrado extends Figure {
 
 // Polygon figure
 class Poligono extends Figure {
-  function __construct($center, $vertices){
+  function __construct(Coordinate $center, array $vertices){
     parent::__construct($center, $vertices, count($vertices)); // As many vertices as the length of the array passed
   }
 
@@ -78,10 +101,14 @@ class Poligono extends Figure {
 
 // Circle figure: the circle has a radius and no vertices specified to the parent constructor
 class Circulo extends Figure {
-  public $radius;
-  function __construct($center, $radius){
+  private $radius;
+  function __construct(Coordinate $center, float $radius){
     $this->radius = $radius;
     parent::__construct($center, array(), 0);
+  }
+
+  public function getRadius(): float {
+    return $this->radius;
   }
 
   public function __toString() {
