@@ -2,8 +2,8 @@
 
 // Coordinate to represent 2D points
 class Coordinate {
-  private $x;
-  private $y;
+  public $x;
+  public $y;
   function __construct($x, $y){
     $this->x = $x;
     $this->y = $y;
@@ -16,9 +16,9 @@ class Coordinate {
 
 // Template Figure class
 class Figure {
-  private $center; // Center location 
+  public $center; // Center location 
   public $n_vertices; // Number of vertices of the figure
-  private $vertices = array(); // Array of vertices
+  public $vertices = array(); // Array of vertices
 
   function __construct($center, $vertices, $n_vertices){
     $this->center = $center;
@@ -64,7 +64,7 @@ class Cuadrado extends Figure {
   }
 }
 
-// Poligon figure
+// Polygon figure
 class Poligono extends Figure {
   function __construct($center, $vertices){
     parent::__construct($center, $vertices, count($vertices)); // As many vertices as the length of the array passed
@@ -77,7 +77,7 @@ class Poligono extends Figure {
 
 // Circle figure: the circle has a radius and no vertices specified to the parent constructor
 class Circulo extends Figure {
-  private $radius;
+  public $radius;
   function __construct($center, $radius){
     $this->radius = $radius;
     parent::__construct($center, array(), 0);
@@ -88,15 +88,11 @@ class Circulo extends Figure {
   }
 }
 
-// EJERCICIO 1 AL FINAL:
-// Triangulo, Cuadrado, Polígono, Círculo y expresando el centro como una coordenada x e y.
-
 // EJERCICIO 2 AL FINAL:
 // Tests unitarios al ejercicio 1.
 
 // EJERCICIO 3 AL FINAL:
 // Tipos al ejercicio 1.
-
 
 // Program. Trying to build a figure with less sides that it needs throws an exception.
 $coords = array();
