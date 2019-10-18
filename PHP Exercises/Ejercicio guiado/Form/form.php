@@ -6,11 +6,13 @@
     private $title;
     private $description;
     private $questions; // Array of questions
+    private $action;
 
-    function __construct(string $title, string $description){
+    function __construct(string $title, string $description, string $action){
       $this->title = $title;
       $this->description = $description;
       $this->questions = array();
+      $this->action = $action;
     }
 
     public function addQuestion (Question $question){
@@ -29,10 +31,10 @@
       return $formValid;
     }
 
-    public function to_HTML(string $destination): string{
+    public function to_HTML(): string{
       $form_HTML = "<h2>$this->title</h2>";
       $form_HTML .= "<p>$this->description</p>";
-      $form_HTML .= "<form action='/$destination'>";
+      $form_HTML .= "<form action='/$this->action'>";
       foreach ($this->questions as $question){
         $form_HTML .= $question->to_HTML();
       }
@@ -52,9 +54,13 @@
     public function getQuestions(): array {
       return $this->questions;
     }
+
+    public function getAction(): string {
+      return $this->action;
+    }
   }
 
-  $f = new Form("Hola", "desc");
-  echo $f->to_HTML("ja");
-
+  $f = new Form("Hola", "desc", "lol");
+  $f->addQuestion(new NumericQuestion("ja", "je"));
+  echo $f->to_HTML();
 ?>
