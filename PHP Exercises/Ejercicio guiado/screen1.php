@@ -32,8 +32,7 @@
           if (isset($_SESSION['customFormError'])){
             echo "<p class='error'>Invalid form introduced. Showing default form.</p>";
           }
-          else if (isset($_SESSION['customFormError']) && 
-            "" == trim($_POST['customForm'])) unset($_SESSION['customForm']);
+          else if ("" == trim($_POST['customForm'])) unset($_SESSION['customForm']);
           else if (isset($_SESSION['customForm']) && ("" != trim($_POST['customForm'])))
             echo "<p class='valid'>Form parsed</p>";
         ?>

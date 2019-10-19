@@ -1,5 +1,21 @@
--- EJEMPLO 1 --
+NOTA: NO SE GENERAN GRÁFICAS DE LOS FORMULARIOS PERSONALIZADOS 
 
-$f = new Form("Ejemplo de formulario personalizado", "Formulario", "screen2.php");
-$f->addQuestion(new StringQuestion("name1","Textual question", "Some text..."));
+-- EJEMPLO 1: Formulario simple con una pregunta de texto--
+
+$f = new Form("Formulario personalizado 1", "Formulario personalizado con una sola pregunta de texto", "screen2.php");
+$f->addQuestion(new StringQuestion("textual","Pregunta de texto", "Respuesta..."));
+return $f;
+
+-- EJEMPLO 2: Formulario con una pregunta numérica entre 0 y 10 y una pregunta de texto --
+$f = new Form("Formulario personalizado 2", "Formulario personalizado con una pregunta de número entre 0 y 10 y otra de texto", "screen2.php");
+$f->addQuestion(new NumericQuestion("numeric","Del 0 al 10, ¿cómo te ha salido el exámen?", "0..10", 0, 10));
+$f->addQuestion(new StringQuestion("textual","¿Qué pregunta se te hizo más difícil?", "La pregunta número..."));
+return $f;
+
+-- EJEMPLO 3: Formulario más complejo como el que sale por defecto, con radio buttons --
+$f = new Form("Formulario personalizado 3", "Formulario más complejo como el que sale por defecto, con radio buttons", "screen2.php");
+$f->addQuestion(new NumericQuestion("age","Edad", "Edad...", 1, 120));
+$f->addQuestion(new StringQuestion("name","Nombre", "Eduardo..."));
+$f->addQuestion(new RadioButtonQuestion("gender","Género", 
+"Hombre", "Mujer", "No procede"));
 return $f;
