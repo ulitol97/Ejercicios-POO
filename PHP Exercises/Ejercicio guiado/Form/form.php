@@ -33,8 +33,8 @@
 
     public function to_HTML(): string{
       $form_HTML = "<h2>$this->title</h2>";
-      $form_HTML .= "<p>$this->description</p>";
-      $form_HTML .= "<form action='/$this->action'>";
+      $form_HTML .= "<h4>$this->description</h4>";
+      $form_HTML .= "<form action='/$this->action' method='post'>";
       foreach ($this->questions as $question){
         $form_HTML .= $question->to_HTML();
       }
@@ -58,9 +58,13 @@
     public function getAction(): string {
       return $this->action;
     }
+
+    public function __toString(): string {
+      return "form about: " . $this->title;
+    }
   }
 
-  $f = new Form("Hola", "desc", "lol");
-  $f->addQuestion(new NumericQuestion("ja", "je"));
-  echo $f->to_HTML();
+  $f = new Form("Formulario 1", "Descripcion", "lol");
+  $f->addQuestion(new NumericQuestion("Pregunta numérica 1", "15"));
+  $_SESSION['defaultForm'] = $f;
 ?>
