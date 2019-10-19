@@ -49,12 +49,12 @@
             echo $_SESSION['customForm']->to_HTML();
           }
           else {
-            $f = new Form("Default form", "Description", "screen2.php");
+            $f = new Form("Rate your trip experience", "Please rate a few aspects about your last trip:", "screen2.php");
             $f->addQuestion(new StringQuestion("place","What was the last foreign country you visited", "France..."));
+            $f->addQuestion(new RadioButtonQuestion("journey","How did you feel during the jouney?", 
+              "Angry", "Bored", "Curious", "Interested", "In love"));
             $f->addQuestion(new RadioButtonQuestion("monuments","How did you feel when visiting the different monuments?", 
               "Angry", "Bored", "Curious", "Interested", "In love"));
-            $f->addQuestion(new RadioButtonQuestion("food","How do you think the foreign meals were?", 
-              "Awful", "Bad", "Meh", "Tasty", "Delicious"));
             $f->addQuestion(new NumericQuestion("score","From 0 to 10, how much did you enjoy the visit?", "0..10", 0, 10));
             $_SESSION['defaultForm'] = $f;
             
@@ -66,8 +66,14 @@
         <h2>Data visualizer</h2>
           <?php
             if (isset($_SESSION['validForm'])){
-              echo "<h4>Graph of the las valid input data:</h4><div id='graph-wrapper'></div>";
-              echo json_encode($_SESSION['validForm']);
+              if ($_SESSION['validForm']->title == "Rate your trip experience"){
+                echo "<h4>Graph of the last valid input data:</h4><div id='graph-wrapper''></div>";
+                $json_form = json_encode($_SESSION['validForm']);
+                echo "<script>var incomingData = $json_form</script>";
+              }
+              else {
+                echo "<h4 class='error'>Sorry but graphs are only generated for the default form and not user custom forms.</h4>";
+              }
             } 
             else echo "<h4 class='error'>Please complete the rest of the steps before accessing the visualization page.</h4>";
           ?>
@@ -76,6 +82,7 @@
         <?php include 'debugger/debugger.php';?>
       </div>
     </div>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src='js/visualizer.js'></script>
   </body>
 </html>

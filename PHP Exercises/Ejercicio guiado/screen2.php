@@ -75,8 +75,14 @@
         <h2>Data visualizer</h2>
           <?php
             if (isset($_SESSION['validForm'])){
-              echo "<h4>Graph of the las valid input data:</h4><div id='graph-wrapper'></div>";
-              echo json_encode($_SESSION['validForm']);
+              if ($_SESSION['validForm']->title == "Rate your trip experience"){
+                echo "<h4>Graph of the last valid input data:</h4><div id='graph-wrapper''></div>";
+                $json_form = json_encode($_SESSION['validForm']);
+                echo "<script>var incomingData = $json_form</script>";
+              }
+              else {
+                echo "<h4 class='error'>Sorry but graphs are only generated for the default form and not user custom forms.</h4>";
+              }
             } 
             else echo "<h4 class='error'>Please complete the rest of the steps before accessing the visualization page.</h4>";
           ?>
@@ -85,6 +91,7 @@
         <?php include 'debugger/debugger.php';?>
       </div>
     </div>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src='js/visualizer.js'></script>
   </body>
 </html>
