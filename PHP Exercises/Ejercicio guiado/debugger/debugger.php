@@ -16,9 +16,6 @@
         <th>value</th>
         <th>type</th>
       </tr>";
-
-      $_SESSION['example1'] = 3;
-
       // Print each variable into the table
       foreach ($session_keys as $value){
         echo "<tr>";

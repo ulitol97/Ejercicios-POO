@@ -1,4 +1,9 @@
-<?php session_start();?>
+<?php 
+  spl_autoload_register(function () {
+    include 'form/form.php';
+  });
+  session_start();
+?>
 <html lang="es">
   <head>
     <meta charset="utf-8">
@@ -14,7 +19,6 @@
           unset($_SESSION['customForm']);
           unset($_SESSION['customFormError']);
         };
-        include 'form/form.php';
         include 'evaluator/evaluator.php';
       ?>
       <div class='evaluator'>
@@ -28,6 +32,7 @@
           if (isset($_SESSION['customFormError'])){
             echo "<p class='error'>Invalid form introduced</p>";
           }
+          else if ("" == trim($_POST['customForm'])) unset($_SESSION['customForm']);
           else if (isset($_SESSION['customForm']) && ("" != trim($_POST['customForm'])))
             echo "<p class='valid'>Form parsed</p>";
         ?>
@@ -37,15 +42,24 @@
           // If a custom form was given by the user, show it
           if (isset($_SESSION['customForm']) && ("" != trim($_POST['customForm'])
           && (!isset($_GET['reset'])))){
+            // Ensure POST data is sent to the second page
+            $_SESSION['customForm']->action = "screen2.php";
+            $_SESSION['customForm']->disabled = "";
             echo $_SESSION['customForm']->to_HTML();
           }
           else {
+            $f = new Form("Default form", "Description", "screen2.php");
+            $f->addQuestion(new NumericQuestion("numeric","Numeric question", "0..10", 0, 10));
+            $f->addQuestion(new StringQuestion("textual","Textual question", "Answer..."));
+            $_SESSION['defaultForm'] = $f;
+            
             echo $_SESSION['defaultForm']->to_HTML();
           }
         ?>
       </div>
       <div class='visualizer'>
         <h2>Data visualizer</h2>
+        <h4>No validated data to visualize yet</h4>
       </div>
       <div class='debugger'>
         <?php include 'debugger/debugger.php';?>

@@ -3,7 +3,7 @@
     try {
       $customForm = eval ($_POST['customForm']);
     }
-    catch (ParseError $e){
+    catch (Error $e){
       $customForm = "";
     }
     

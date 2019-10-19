@@ -1,5 +1,5 @@
 -- EJEMPLO 1 --
 
 $f = new Form("Custom form 1", "Custom form with 1 text field", "screen2.php");
-$f->addQuestion(new StringQuestion("Textual question", "Some text..."));
+$f->addQuestion(new StringQuestion("name1","Textual question", "Some text..."));
 echo $f;

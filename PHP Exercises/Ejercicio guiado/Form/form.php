@@ -6,13 +6,15 @@
     private $title;
     private $description;
     private $questions; // Array of questions
-    private $action;
+    public $action;
+    public $disabled;
 
     function __construct(string $title, string $description, string $action){
       $this->title = $title;
       $this->description = $description;
       $this->questions = array();
       $this->action = $action;
+      $this->disabled = "";
     }
 
     public function addQuestion (Question $question){
@@ -31,14 +33,37 @@
       return $formValid;
     }
 
+    // Fill the form answers with the data captured from a previous post request
+    public function fillForm (): void {
+      if (isset($_POST)){
+        // Get all keys in the array of data of the POST request
+        $session_keys = array_keys($_POST);
+        $n_vars = count($session_keys);
+
+        // For each variable sent in the post
+        foreach ($session_keys as $key){
+          foreach ($this->questions as $question){
+            if ($question->name == $key){
+              $question->answer = $_POST[$key];
+            }
+          }
+        }
+      }
+    }
+
     public function to_HTML(): string{
       $form_HTML = "<h2>$this->title</h2>";
       $form_HTML .= "<h4>$this->description</h4>";
       $form_HTML .= "<form action='/$this->action' method='post'>";
+      $form_HTML .= "<fieldset $this->disabled>";
       foreach ($this->questions as $question){
         $form_HTML .= $question->to_HTML();
       }
-      $form_HTML .= "<input type='submit' value='Submit'></form>";
+      $form_HTML .= "</fieldset>";
+
+      $form_HTML .= "<br/><input type='submit' value='Next'>";
+      $form_HTML .= "</form>";
+
       
       $form_HTML .= "<form action='/screen1.php' method='get'>
       <input type='checkbox' name = 'reset' checked hidden/>
@@ -65,11 +90,7 @@
     }
 
     public function __toString(): string {
-      return "form about: " . $this->title;
+      return "Form with title: " . $this->title;
     }
   }
-
-  $f = new Form("Formulario 1", "Descripcion", "lol");
-  $f->addQuestion(new NumericQuestion("Pregunta numérica 1", "15"));
-  $_SESSION['defaultForm'] = $f;
 ?>
