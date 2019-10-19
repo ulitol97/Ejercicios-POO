@@ -9,6 +9,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" title="base" href="css/base.css">
+    <script src='js/visualizer.js'></script>
     <title>PHP - Form</title>
   </head>
   <body>
@@ -30,7 +31,7 @@
         </form>
         <?php 
           if (isset($_SESSION['customFormError'])){
-            echo "<p class='error'>Invalid form introduced</p>";
+            echo "<p class='error'>Invalid form introduced. Showing default form.</p>";
           }
           else if ("" == trim($_POST['customForm'])) unset($_SESSION['customForm']);
           else if (isset($_SESSION['customForm']) && ("" != trim($_POST['customForm'])))
@@ -63,7 +64,10 @@
       </div>
       <div class='visualizer'>
         <h2>Data visualizer</h2>
-        <h4>No validated data to visualize yet</h4>
+        <?php
+          if (isset($_SESSION['validForm'])) echo "<h4>Graph of the las valid input data:</h4><div id='graph-wrapper'></div>";
+          else echo "<h4>No validated data to visualize yet</h4>";
+        ?>
       </div>
       <div class='debugger'>
         <?php include 'debugger/debugger.php';?>

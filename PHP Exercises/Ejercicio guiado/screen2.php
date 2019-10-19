@@ -8,7 +8,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" title="base" href="css/base.css">
-    <title>PHP - Form</title>
+    <script src='js/visualizer.js'></script>
+    <title>PHP - Validation</title>
   </head>
   <body>
     <div class='wrapper'>
@@ -47,7 +48,7 @@
             }
             echo $_SESSION['customForm']->to_HTML();
           }
-          else {
+          else if (isset($_SESSION['defaultForm'])) {
             $_SESSION['defaultForm']->fillForm();
             $valid = $_SESSION['defaultForm']->validate();
             if (!$valid){
@@ -66,11 +67,17 @@
             }
             echo $_SESSION['defaultForm']->to_HTML();
           }
+          else {
+            echo "<h4 class='error'>Please complete the first page form before accessing this one.</h4>";
+          }
         ?>
       </div>
       <div class='visualizer'>
         <h2>Data visualizer</h2>
-        <h4>No validated data to visualize yet</h4>
+          <?php
+            if (isset($_SESSION['validForm'])) echo "<h4>Graph of the las valid input data:</h4><div id='graph-wrapper'></div>";
+            else echo "<h4>No validated data to visualize yet</h4>";
+          ?>
       </div>
       <div class='debugger'>
         <?php include 'debugger/debugger.php';?>
