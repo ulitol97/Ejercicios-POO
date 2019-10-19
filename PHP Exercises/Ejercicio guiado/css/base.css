@@ -22,6 +22,10 @@
   text-align: center;
 }
 
+.evaluator p {
+  text-align: center;
+}
+
 .form-data {
   grid-column: 1 / 2;
   grid-row: 2;
@@ -66,4 +70,12 @@ td, th {
 
 tr:nth-child(even) {
   background-color: #dddddd;
+}
+
+.error {
+  color: red
+}
+
+.valid {
+  color: green;
 }

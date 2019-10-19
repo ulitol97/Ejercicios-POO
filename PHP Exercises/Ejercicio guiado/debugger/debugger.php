@@ -30,7 +30,14 @@
           $type = gettype($current_var);
         }
         echo "<td>$value</td>";
-        echo "<td>$current_var</td>";
+
+        if ($type == "boolean" && $current_var == true){
+          echo "<td>True</td>";
+        }
+        else if ($current_var == false) {
+          echo "<td>False</td>";
+        }
+        else echo "<td>$current_var</td>";
         echo "<td>$type</td>";
         echo "</tr>";
       }

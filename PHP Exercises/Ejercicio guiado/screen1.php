@@ -8,6 +8,15 @@
   </head>
   <body>
     <div class='wrapper'>
+      <?php
+        // When the reset form signal is fired, remove old custom data before anything else
+        if (isset($_GET['reset'])){
+          unset($_SESSION['customForm']);
+          unset($_SESSION['customFormError']);
+        };
+        include 'form/form.php';
+        include 'evaluator/evaluator.php';
+      ?>
       <div class='evaluator'>
         <h2>Evaluator</h2>
         <h4>Insert your custom php form:</h4>
@@ -15,14 +24,19 @@
           <input type="text" name="customForm" placeholder="PHP code...">
           <input type="submit" value="Submit">
         </form>
+        <?php 
+          if (isset($_SESSION['customFormError'])){
+            echo "<p class='error'>Invalid form introduced</p>";
+          }
+          else if (isset($_SESSION['customForm']) && ("" != trim($_POST['customForm'])))
+            echo "<p class='valid'>Form parsed</p>";
+        ?>
       </div>
       <div class='form-data'>
         <?php
-          include 'form/form.php';
-          include 'evaluator/evaluator.php';
-
           // If a custom form was given by the user, show it
-          if (isset($_SESSION['customForm'])){
+          if (isset($_SESSION['customForm']) && ("" != trim($_POST['customForm'])
+          && (!isset($_GET['reset'])))){
             echo $_SESSION['customForm']->to_HTML();
           }
           else {

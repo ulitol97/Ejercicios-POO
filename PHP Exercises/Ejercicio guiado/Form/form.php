@@ -39,6 +39,11 @@
         $form_HTML .= $question->to_HTML();
       }
       $form_HTML .= "<input type='submit' value='Submit'></form>";
+      
+      $form_HTML .= "<form action='/screen1.php' method='get'>
+      <input type='checkbox' name = 'reset' checked hidden/>
+      <input type='submit' value='Reset to default form'/>
+      </form>";
 
       return $form_HTML;
     }
