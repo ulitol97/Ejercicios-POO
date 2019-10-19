@@ -21,7 +21,7 @@
 
     public function to_HTML(): string {
       $question_HTML = "$this->label:<br>";
-      $question_HTML .= "<input type='text' required='required' name='$this->name' placeholder='$this->templateText' value='$this->answer'>";
+      $question_HTML .= "<input type='text' name='$this->name' placeholder='$this->templateText' value='$this->answer'>";
       if (!$this->validated){
         $question_HTML .= "<span class='error'> * </span>";
       }
@@ -37,14 +37,39 @@
 
     public function validate (): bool {
       $this->answer = trim($this->answer);
+      if ($this->answer == ""){
+        $this->validated = false;
+        return false;
+      }
       $this->validated = true;
       return true;
     }
   }
 
+  class RadioButtonQuestion extends Question {
+    private $options;
+    function __construct(string $name, string $label, string ...$options){
+      parent::__construct($name, $label, "");
+      $this->options = $options;
+    }
+
+    public function to_HTML(): string {
+      $question_HTML = "$this->label:<br>";
+      foreach ($this->options as $option){
+        $question_HTML .= "<input type='radio' required='required' name='$this->name' checked='true'>$option</input>";
+      }
+      $question_HTML .= "<br/>";
+      return $question_HTML;
+    }
+
+    public function validate (): bool {
+      return true;
+    }
+  }
+
   class NumericQuestion extends Question {
-    public $min;
-    public $max;
+    private $min;
+    private $max;
     function __construct(string $name, string $label, string $templateText, float $min, float $max){
       parent::__construct($name, $label, $templateText);
       $this->min = $min;
@@ -53,8 +78,8 @@
 
     public function to_HTML(): string {
       $question_HTML = "$this->label:<br>";
-      $question_HTML .= "<input type='number' required='required' name='$this->name' placeholder='$this->templateText'
-       value='$this->answer' min='$this->min' max='$this->max'>";
+      $question_HTML .= "<input type='number' name='$this->name' placeholder='$this->templateText'
+       value='$this->answer'>";
       if (!$this->validated){
         $question_HTML .= "<span class='error'> * </span>";
       }

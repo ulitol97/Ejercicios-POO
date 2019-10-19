@@ -49,8 +49,12 @@
           }
           else {
             $f = new Form("Default form", "Description", "screen2.php");
-            $f->addQuestion(new NumericQuestion("numeric","Numeric question", "0..10", 0, 10));
-            $f->addQuestion(new StringQuestion("textual","Textual question", "Answer..."));
+            $f->addQuestion(new StringQuestion("place","What was the last foreign country you visited", "France..."));
+            $f->addQuestion(new RadioButtonQuestion("monuments","How did you feel when visiting the different monuments?", 
+              "Angry", "Bored", "Curious", "Interested", "In love"));
+            $f->addQuestion(new RadioButtonQuestion("food","How do you think the foreign meals were?", 
+              "Awful", "Bad", "Meh", "Tasty", "Delicious"));
+            $f->addQuestion(new NumericQuestion("score","From 0 to 10, how much did you enjoy the visit?", "0..10", 0, 10));
             $_SESSION['defaultForm'] = $f;
             
             echo $_SESSION['defaultForm']->to_HTML();
