@@ -3,9 +3,9 @@
 
   // Class representing the form containg questions
   class Form {
-    private $title;
-    private $description;
-    private $questions; // Array of questions
+    public $title;
+    public $description;
+    public $questions; // Array of questions
     public $action;
     public $disabled;
 

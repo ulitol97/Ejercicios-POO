@@ -56,7 +56,9 @@
     public function to_HTML(): string {
       $question_HTML = "$this->label:<br>";
       foreach ($this->options as $option){
-        $question_HTML .= "<input type='radio' required='required' name='$this->name' checked='true'>$option</input>";
+        $checked = "";
+        if ($this->answer == $option) $checked = "checked='true'";
+        $question_HTML .= "<input type='radio' required='required' value='$option' name='$this->name' $checked>$option</input>";
       }
       $question_HTML .= "<br/>";
       return $question_HTML;

@@ -9,7 +9,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" title="base" href="css/base.css">
-    <script src='js/visualizer.js'></script>
     <title>PHP - Form</title>
   </head>
   <body>
@@ -33,7 +32,8 @@
           if (isset($_SESSION['customFormError'])){
             echo "<p class='error'>Invalid form introduced. Showing default form.</p>";
           }
-          else if ("" == trim($_POST['customForm'])) unset($_SESSION['customForm']);
+          else if (isset($_SESSION['customFormError']) && 
+            "" == trim($_POST['customForm'])) unset($_SESSION['customForm']);
           else if (isset($_SESSION['customForm']) && ("" != trim($_POST['customForm'])))
             echo "<p class='valid'>Form parsed</p>";
         ?>
@@ -64,14 +64,18 @@
       </div>
       <div class='visualizer'>
         <h2>Data visualizer</h2>
-        <?php
-          if (isset($_SESSION['validForm'])) echo "<h4>Graph of the las valid input data:</h4><div id='graph-wrapper'></div>";
-          else echo "<h4>No validated data to visualize yet</h4>";
-        ?>
+          <?php
+            if (isset($_SESSION['validForm'])){
+              echo "<h4>Graph of the las valid input data:</h4><div id='graph-wrapper'></div>";
+              echo json_encode($_SESSION['validForm']);
+            } 
+            else echo "<h4 class='error'>Please complete the rest of the steps before accessing the visualization page.</h4>";
+          ?>
       </div>
       <div class='debugger'>
         <?php include 'debugger/debugger.php';?>
       </div>
     </div>
+    <script src='js/visualizer.js'></script>
   </body>
 </html>
