@@ -47,7 +47,7 @@
   }
 
   class RadioButtonQuestion extends Question {
-    private $options;
+    public $options;
     function __construct(string $name, string $label, string ...$options){
       parent::__construct($name, $label, "");
       $this->options = $options;
@@ -70,8 +70,8 @@
   }
 
   class NumericQuestion extends Question {
-    private $min;
-    private $max;
+    public $min;
+    public $max;
     function __construct(string $name, string $label, string $templateText, float $min, float $max){
       parent::__construct($name, $label, $templateText);
       $this->min = $min;
