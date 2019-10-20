@@ -61,7 +61,7 @@ function drawCharts() {
   'width':500,
   'height':300};
 
-  // Instantiate and draw our charts, passing in the options.
+  // Instantiate and draw our charts, passing in some options.
   let journeyAndVisitChart = new google.visualization.PieChart(pieChartDiv);
   let scoreChart = new google.visualization.ColumnChart(barChartDiv);
 
@@ -69,16 +69,15 @@ function drawCharts() {
   scoreChart.draw(scoreData, scoreOptions);
 }
 
-// Start of the script
-
-// Div where the graphs are drawn, it only exists if the form had valid data
 let graphsDiv: Element = document.getElementById("graph-wrapper");
 if (graphsDiv != null){
 
-  // Sub-divs where each graph will be drawn
   var pieChartDiv = graphsDiv.appendChild(document.createElement('div'));
   var barChartDiv = graphsDiv.appendChild(document.createElement('div'));
 
+
+
+  console.log("Plotting chart");
   var visitedPlace: string = incomingData.questions[0].answer;
   loadGoogleCharts();
 }

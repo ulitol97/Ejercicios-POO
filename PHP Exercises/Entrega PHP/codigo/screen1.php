@@ -12,7 +12,6 @@
     <title>PHP - Form</title>
   </head>
   <body>
-    <!-- Wrapper to arrange the screen items -->
     <div class='wrapper'>
       <?php
         // When the reset form signal is fired, remove old custom data before anything else
@@ -22,7 +21,6 @@
         };
         include 'evaluator/evaluator.php';
       ?>
-      <!-- Evaluator module with the form to introduce PHP code -->
       <div class='evaluator'>
         <h2>Evaluator</h2>
         <h4>Insert your custom php form:</h4>
@@ -39,7 +37,6 @@
             echo "<p class='valid'>Form parsed</p>";
         ?>
       </div>
-      <!-- Main body of the form -->
       <div class='form-data'>
         <?php
           // If a custom form was given by the user, show it
