@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>100</x>
+      <y>100</y>
+      <w>280</w>
+      <h>250</h>
+    </coordinates>
+    <panel_attributes>Form
+--
++ title: string
++ description: string
++ action: string
++ disabled: string
++ questions: Question[ ]
+--
+&lt;&lt;constructor&gt;&gt; + Form (title: string, 
+ description: string, action: string)
+ 
++ addQuestion (question: Question): void
++ validate (): bool
++ fillForm (): void
++ to_HTML (): string
++ __toString(): string
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>670</x>
+      <y>100</y>
+      <w>280</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;abstract&gt;&gt;
+/Question/
+--
++ name: string
++ label: string
++ templateText: string
++ answer: string
++ validated: boolean
+--
+&lt;&lt;constructor&gt;&gt; + Question (name: string, 
+ label: string, templateText: string)
+ 
++ validate (): bool
++ to_HTML (): string
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>200</x>
+      <y>510</y>
+      <w>300</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>StringQuestion
+--
+--
+&lt;&lt;constructor&gt;&gt; + StringQuestion (name: string, 
+ label: string, templateText: string)
+ 
++ validate (): bool
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>560</x>
+      <y>500</y>
+      <w>360</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>NumericQuestion
+--
++ min: float
++ max: float
+--
+&lt;&lt;constructor&gt;&gt; + NumericQuestion (name: string, 
+ label: string, templateText: string, min: float, max: float)
+ 
++ validate (): bool
++ to_HTML (): string
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>960</x>
+      <y>520</y>
+      <w>350</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>RadioButtonQuestion
+--
++ options: string [ ]
+--
+&lt;&lt;constructor&gt;&gt; + RadioButtonQuestion (name: string, 
+ label: string, options: string [ ])
+ 
++ validate (): bool
++ to_HTML (): string
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>790</x>
+      <y>300</y>
+      <w>30</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;200.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>790</x>
+      <y>300</y>
+      <w>370</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0;350.0;110.0;350.0;220.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>370</x>
+      <y>300</y>
+      <w>450</w>
+      <h>230</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>430.0;10.0;430.0;110.0;10.0;110.0;10.0;210.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>370</x>
+      <y>90</y>
+      <w>320</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>m1=1
+m2=1..*
+
+lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;20.0;300.0;20.0</additional_attributes>
+  </element>
+</diagram>
