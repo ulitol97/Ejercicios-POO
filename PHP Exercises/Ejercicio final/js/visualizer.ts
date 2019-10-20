@@ -6,7 +6,7 @@ function loadGoogleCharts(): void{
 }
 
 // Draws the graphs
-function drawCharts() {
+function drawCharts(): void {
 
   // Create data tables
   let journeyAndVisitData = new google.visualization.DataTable();
